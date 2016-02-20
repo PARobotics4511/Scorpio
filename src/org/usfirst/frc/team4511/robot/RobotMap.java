@@ -10,13 +10,10 @@ import edu.wpi.first.wpilibj.RobotDrive;
  */
 public class RobotMap {
 	// Drivetrain Motors
-
 	public static int frontLeft = 1;
 	public static int frontRight = 2;
 	public static int backLeft = 4;
 	public static int backRight = 3;
-
-	public static RobotDrive rDrive = new RobotDrive(frontLeft, frontRight, backLeft, backRight);
 	
 	// Winch motor
 	public static int winch = 6;
@@ -30,8 +27,8 @@ public class RobotMap {
 	public static int grabberLifter = 5; // Lifts grabber bar [for ball] on front of robot 
 
 	// Solenoids
-	public static int solOpen = 0;
-	public static int solCLose = 1;
+	public static int solBot = 0;
+	public static int solTop = 1;
 
 	public static int potentiometer = 12;
 	

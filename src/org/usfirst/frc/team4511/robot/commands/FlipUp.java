@@ -22,7 +22,7 @@ public class FlipUp extends Command {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
     	Robot.lift.liftMotor.set(0.15);
-    	//new WinchDown();
+    	//new WinchUp();
     }
 
     // Make this return true when this Command no longer needs to run execute()

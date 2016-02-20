@@ -7,9 +7,9 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  *
  */
-public class FlipStop extends Command {
+public class Vent extends Command {
 
-    public FlipStop() {
+    public Vent() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     	requires(Robot.lift);
@@ -21,8 +21,8 @@ public class FlipStop extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.lift.liftMotor.set(0);
-    	//new WinchStop();
+    	Robot.lift.topSol.set(true);
+    	Robot.lift.botSol.set(true);
     }
 
     // Make this return true when this Command no longer needs to run execute()

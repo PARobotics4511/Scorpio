@@ -22,8 +22,8 @@ public class PullUp extends Command {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
     	//if(Robot.pistonIsFinished){
-	    	Robot.lift.open.set(true);
-	    	Robot.lift.closed.set(true);
+	    	Robot.lift.botSol.set(true);
+	    	Robot.lift.topSol.set(true);
     	//}
     }
 

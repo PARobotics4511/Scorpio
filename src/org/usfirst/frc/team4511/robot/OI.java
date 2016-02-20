@@ -34,19 +34,22 @@ public class OI {
     JoystickButton butt4l = new JoystickButton(jLeft, 4);
     JoystickButton butt6l = new JoystickButton(jLeft, 6);
     JoystickButton butt7l = new JoystickButton(jLeft, 7);
+    JoystickButton butt10l = new JoystickButton(jLeft, 10);
     
     JoystickButton butt3r = new JoystickButton(jRight, 3);
     JoystickButton butt5r = new JoystickButton(jRight, 5);
     JoystickButton butt6r = new JoystickButton(jRight, 6);
-    JoystickButton butt7r = new JoystickButton(jRight, 7);
+    //JoystickButton butt7r = new JoystickButton(jRight, 7);
     JoystickButton butt11r = new JoystickButton(jRight, 11);
     JoystickButton butt1r = new JoystickButton(jRight, 1);
 
 
-    butt1l.whenPressed(new PanLeft());
+    /*butt1l.whenPressed(new PanLeft());
     butt1l.whenReleased(new PanStop());
     butt1r.whenPressed(new PanRight());
-    butt1l.whenReleased(new PanStop());
+    butt1l.whenReleased(new PanStop());*/
+    butt1l.whenPressed(new Vent());
+    butt1r.whenPressed(new Extend());
     butt3l.whenPressed(new SpitOut());
     butt3l.whenReleased(new SuckStop());
     butt3r.whenPressed(new SuckIn());
@@ -59,11 +62,13 @@ public class OI {
     butt6l.whenReleased(new FlipStop());
     butt6r.whenPressed(new WinchUp());
     butt6r.whenReleased(new WinchStop());
-    butt7r.whenPressed(new WinchDown());
-    butt6r.whenReleased(new WinchStop());
+    butt10l.whenPressed(new WinchDown());
+    butt10l.whenReleased(new WinchStop());
     butt7l.whenPressed(new PullUp());
     butt11r.whenPressed(new FlipUp());
     butt11r.whenReleased(new FlipStop());
+    
+    
     
     // Start the command when the button is pressed and let it run the command
     // until it is finished as determined by it's isFinished method.

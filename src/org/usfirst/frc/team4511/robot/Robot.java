@@ -50,7 +50,7 @@ public class Robot extends IterativeRobot {
      * used for any initialization code.
      */
     public Robot(){
-    	lift.comp.start();
+       lift.comp.start();
     }
     
     public void robotInit() {
