@@ -1,0 +1,48 @@
+package org.usfirst.frc.team4511.robot;
+
+import edu.wpi.first.wpilibj.RobotDrive;
+
+/**
+ * The RobotMap is a mapping from the ports sensors and actuators are wired into
+ * to a variable name. This provides flexibility changing wiring, makes checking
+ * the wiring easier and significantly reduces the number of magic numbers
+ * floating around.
+ */
+public class RobotMap {
+	// Drivetrain Motors
+
+	public static int frontLeft = 1;
+	public static int frontRight = 2;
+	public static int backLeft = 4;
+	public static int backRight = 3;
+
+	public static RobotDrive rDrive = new RobotDrive(frontLeft, frontRight, backLeft, backRight);
+	
+	// Winch motor
+	public static int winch = 6;
+
+	// Spinner motors
+	public static int spinnerUno = 8;
+	public static int spinnerDos = 9;
+
+	// Piston Lifters
+	public static int pistonLifter = 7; // Lifts component with piston on it [for use at end of match]
+	public static int grabberLifter = 5; // Lifts grabber bar [for ball] on front of robot 
+
+	// Solenoids
+	public static int solOpen = 0;
+	public static int solCLose = 1;
+
+	public static int potentiometer = 12;
+	
+	public static int compressor = 0;
+	
+	//Servos
+	public static int servoUno = 0;
+	public static int servoDos = 1;
+	
+	// If you are using multiple modules, make sure to define both the port
+	// number and the module. For example you with a rangefinder:
+	// public static int rangefinderPort = 1;
+	// public static int rangefinderModule = 1;
+}
