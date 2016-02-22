@@ -13,10 +13,10 @@ import edu.wpi.first.wpilibj.RobotDrive;
  *
  */
 public class DriveTrain extends Subsystem {
-	CANTalon frontLeft = new CANTalon(RobotMap.frontLeft);
-	CANTalon frontRight = new CANTalon(RobotMap.frontRight);
-	CANTalon backLeft = new CANTalon(RobotMap.backLeft);
-	CANTalon backRight = new CANTalon(RobotMap.backRight);
+	public CANTalon frontLeft = new CANTalon(RobotMap.frontLeft);
+	public CANTalon frontRight = new CANTalon(RobotMap.frontRight);
+	public CANTalon backLeft = new CANTalon(RobotMap.backLeft);
+	public CANTalon backRight = new CANTalon(RobotMap.backRight);
 
 	public RobotDrive robotD = new RobotDrive(frontLeft, backLeft, frontRight, backRight);
 

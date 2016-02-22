@@ -9,9 +9,9 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  *
  */
-public class AutoDrive extends Command {
+public class AutoTurn extends Command {
 
-    public AutoDrive() {
+    public AutoTurn() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     	requires(Robot.soulTrain);
@@ -25,18 +25,13 @@ public class AutoDrive extends Command {
     protected void execute() {
     	Encoder wheelEncoder = new Encoder(1,2, true, EncodingType.k4X);
     	wheelEncoder.reset();
-    	int maxDriveRotations = 10000;
-    	while(!Robot.adHasFinished){
-    		int currentAutoWheelCount = wheelEncoder.get();
-    		while(currentAutoWheelCount < maxDriveRotations){
-    			Robot.soulTrain.robotD.drive(1, 0);
-    			if(currentAutoWheelCount >= maxDriveRotations){
-    				Robot.soulTrain.stop();
-    				Robot.adHasFinished = true;
-    				if(Robot.adHasFinished){
-    					Robot.soulTrain.stop();
-    				}
-    			}
+    	int turnWheelCount = wheelEncoder.get(); 
+    	int maxCount = 2000;
+    	while(turnWheelCount < maxCount){
+    		Robot.soulTrain.frontLeft.set(0.4);
+    		Robot.soulTrain.backLeft.set(0.4);
+    		if(turnWheelCount >= maxCount){
+    			Robot.soulTrain.stop();
     		}
     	}
     }
@@ -48,7 +43,6 @@ public class AutoDrive extends Command {
 
     // Called once after isFinished returns true
     protected void end() {
-    	Robot.soulTrain.stop();
     }
 
     // Called when another command which requires one or more of the same
