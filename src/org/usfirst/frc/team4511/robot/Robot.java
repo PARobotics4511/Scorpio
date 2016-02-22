@@ -58,7 +58,7 @@ public class Robot extends IterativeRobot {
 		//autonomousCommand = new Autonomous();
 		
         chooser = new SendableChooser();
-        chooser.addDefault("Turn Left Auto", new Autonomous());
+        chooser.addDefault("Default Auto", new Autonomous());
         //chooser.addObject("Turn Right Auto", new AutonomousTurnRight());
         //SmartDashboard.putData("Auto mode", chooser);
         

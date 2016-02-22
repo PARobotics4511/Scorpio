@@ -20,7 +20,6 @@ public class AutoPullUp extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	boolean executePullUp = true;
     	boolean extended = false;
     	Encoder winchEncoder = new Encoder(3, 4, true, EncodingType.k4X);
     	Encoder pullUpEncoder = new Encoder(5, 6, true, EncodingType.k4X);
@@ -29,25 +28,25 @@ public class AutoPullUp extends Command {
     	int maxWinchRotations = 2560;
     	int maxFlipUpRange = 256; // x/1024 = 90/360
     	//Encoder is 1024 CPR
-    	while(executePullUp == true){
-    		int currentFlipUpCount = pullUpEncoder.get(); 
-    		int currentWinchCount = winchEncoder.get();
-    		while(currentFlipUpCount <= maxFlipUpRange){
-    			new FlipUp();
-    		}
-    		if (currentFlipUpCount >= maxFlipUpRange){
-    			new Extend();
-    			extended = true;
-    		}
-    		while(extended && currentWinchCount < maxWinchRotations){
-        			new PullUp();
-        			new WinchUp();
-        	}
-    		if(currentWinchCount >= maxWinchRotations && currentFlipUpCount >= maxFlipUpRange){
-    			executePullUp = false;
+    	
+    	int currentFlipUpCount = pullUpEncoder.get(); 
+    	int currentWinchCount = winchEncoder.get();
+    	while(currentFlipUpCount <= maxFlipUpRange){
+    		new FlipUp();
+    	}
+    	if (currentFlipUpCount >= maxFlipUpRange){
+    		new Extend();
+    		extended = true;
+    	}
+    	while(extended && currentWinchCount < maxWinchRotations){
+        	new PullUp();
+        	new WinchUp();
+        	if(currentWinchCount >= maxWinchRotations && currentFlipUpCount >= maxFlipUpRange){
+        			new WinchStop();
+        		}
     		}
     	}
-    }
+   
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
