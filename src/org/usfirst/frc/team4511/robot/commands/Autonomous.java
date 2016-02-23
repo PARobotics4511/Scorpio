@@ -1,5 +1,7 @@
 package org.usfirst.frc.team4511.robot.commands;
 
+import org.usfirst.frc.team4511.robot.Robot;
+
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
 /**
@@ -8,12 +10,14 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 public class Autonomous extends CommandGroup {
     
     public  Autonomous() {
+    	requires(Robot.soulTrain);
+    	requires(Robot.mouth);
         // Add Commands here:
         // e.g. addSequential(new Command1());
         //      addSequential(new Command2());
         // these will run in order.
     	addSequential(new AutoDrive());
-    	addSequential(new AutoTurn());
+    	//addSequential(new AutoTurn());
     	addSequential(new SpitOut());
         // To run multiple commands at the same time,
         // use addParallel()

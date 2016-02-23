@@ -48,8 +48,10 @@ public class OI {
     butt1l.whenReleased(new PanStop());
     butt1r.whenPressed(new PanRight());
     butt1l.whenReleased(new PanStop());*/
-    butt1l.whenPressed(new Vent());
-    butt1r.whenPressed(new Extend());
+    //butt1l.whenPressed(new Vent());
+    //butt1l.whenReleased(new PistonDefault());
+    //butt1r.whenPressed(new Extend());
+    //butt1r.whenReleased(new PistonDefault());
     butt3l.whenPressed(new SpitOut());
     butt3l.whenReleased(new SuckStop());
     butt3r.whenPressed(new SuckIn());
@@ -83,9 +85,9 @@ public class OI {
     // button.whenReleased(new ExampleCommand());
     }
     
-    public static double getXInput(){
-    	if(Math.abs(jLeft.getX()) > deadzone){
-    		return jLeft.getX();
+    public static double getYInput2(){
+    	if(Math.abs(jLeft.getY()) > deadzone){
+    		return jLeft.getY();
     	}
     	return 0;
     }

@@ -21,8 +21,9 @@ public class Vent extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+    	Robot.lift.botSol.set(false);
     	Robot.lift.topSol.set(true);
-    	Robot.lift.botSol.set(true);
+    	Robot.lift.comp.start();
     }
 
     // Make this return true when this Command no longer needs to run execute()
