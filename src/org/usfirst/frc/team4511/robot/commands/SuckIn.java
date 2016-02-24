@@ -21,8 +21,8 @@ public class SuckIn extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.mouth.spinner0.set(-0.8);
-    	Robot.mouth.spinner1.set(0.8);
+    	Robot.mouth.spinner0.set(-1);
+    	Robot.mouth.spinner1.set(1);
     }
 
     // Make this return true when this Command no longer needs to run execute()

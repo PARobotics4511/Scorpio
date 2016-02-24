@@ -1,11 +1,13 @@
 package org.usfirst.frc.team4511.robot.subsystems;
 
+import edu.wpi.first.wpilibj.CounterBase.EncodingType;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 import org.usfirst.frc.team4511.robot.*;
 import org.usfirst.frc.team4511.robot.commands.Drive;
 
 import edu.wpi.first.wpilibj.CANTalon;
+import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.RobotDrive;
 
@@ -20,11 +22,15 @@ public class DriveTrain extends Subsystem {
 
 	public RobotDrive robotD = new RobotDrive(frontLeft, backLeft, frontRight, backRight);
 
+	public Encoder wheelEncoder = new Encoder(0,1, false, EncodingType.k1X);
+	
+
 	public void initDefaultCommand() {
         // Set the default command for a subsystem here.
         //setDefaultCommand(new MySpecialCommand());
     	robotD.setSafetyEnabled(true);
 		setDefaultCommand(new Drive());
+		
     }
 	
 	public void takeJoystick(double d, double e) {
