@@ -39,18 +39,13 @@ public class OI {
     JoystickButton butt3r = new JoystickButton(jRight, 3);
     JoystickButton butt5r = new JoystickButton(jRight, 5);
     JoystickButton butt6r = new JoystickButton(jRight, 6);
-    //JoystickButton butt7r = new JoystickButton(jRight, 7);
+    JoystickButton butt7r = new JoystickButton(jRight, 7);
     JoystickButton butt11r = new JoystickButton(jRight, 11);
     JoystickButton butt1r = new JoystickButton(jRight, 1);
 
-
-    /*butt1l.whenPressed(new PanLeft());
-    butt1l.whenReleased(new PanStop());
-    butt1r.whenPressed(new PanRight());
-    butt1l.whenReleased(new PanStop());*/
-    //butt1l.whenPressed(new Vent());
-    //butt1l.whenReleased(new PistonDefault());
-    //butt1r.whenPressed(new Extend());
+    butt1l.whileHeld(new Vent());
+    butt1l.whenReleased(new PistonDefault());
+    butt1r.whileHeld(new Extend());
     //butt1r.whenReleased(new PistonDefault());
     butt3l.whenPressed(new SpitOut());
     butt3l.whenReleased(new SuckStop());
@@ -67,7 +62,9 @@ public class OI {
     butt10l.whenPressed(new WinchDown());
     butt10l.whenReleased(new WinchStop());
     butt7l.whenPressed(new PullUp());
+    butt7r.whenPressed(new PistonDefault());
     butt11r.whenPressed(new FlipUp());
+    //butt11r.whenPressed(new AutoPullUp());
     butt11r.whenReleased(new FlipStop());
     
     
@@ -87,14 +84,14 @@ public class OI {
     
     public static double getYInput2(){
     	if(Math.abs(jLeft.getY()) > deadzone){
-    		return jLeft.getY();
+    		return -jLeft.getY();
     	}
     	return 0;
     }
     
     public static double getYInput(){
     	if(Math.abs(jRight.getY()) > deadzone){
-    		return jRight.getY();
+    		return -jRight.getY();
     	}
     	return 0;
     }

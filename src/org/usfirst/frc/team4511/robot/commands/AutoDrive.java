@@ -1,5 +1,7 @@
 package org.usfirst.frc.team4511.robot.commands;
 
+import java.io.Console;
+
 import org.usfirst.frc.team4511.robot.Robot;
 
 import edu.wpi.first.wpilibj.Encoder;
@@ -10,7 +12,9 @@ import edu.wpi.first.wpilibj.command.Command;
  *
  */
 public class AutoDrive extends Command {
-
+	int maxDriveRotations = 10;
+	boolean adIsFinished = false;
+	
     public AutoDrive() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
@@ -19,30 +23,25 @@ public class AutoDrive extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
+    	Robot.soulTrain.wheelEncoder.reset();
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Encoder wheelEncoder = new Encoder(0,1, true, EncodingType.k4X);
-    	wheelEncoder.reset();
-    	int maxDriveRotations = 50;
-    	while(!Robot.adHasFinished){
-    		int currentAutoWheelCount = wheelEncoder.get();
+    		int currentAutoWheelCount = Robot.soulTrain.wheelEncoder.get();
     		while(currentAutoWheelCount < maxDriveRotations){
-    			Robot.soulTrain.robotD.drive(.5, 0);
+    			Robot.soulTrain.robotD.drive(.2, 0);
     			if(currentAutoWheelCount >= maxDriveRotations){
-    				Robot.soulTrain.stop();
-    				Robot.adHasFinished = true;
-    				if(Robot.adHasFinished){
-    					Robot.soulTrain.stop();
-    				}
+    				adIsFinished = true;
     			}
     		}
     	}
-    }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
+    	if(adIsFinished){
+    		return true;
+		}
         return false;
     }
 

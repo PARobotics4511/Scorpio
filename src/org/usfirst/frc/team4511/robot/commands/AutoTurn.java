@@ -10,6 +10,8 @@ import edu.wpi.first.wpilibj.command.Command;
  *
  */
 public class AutoTurn extends Command {
+	int maxTurnRotations = 20;
+	boolean turnIsFinished = false;
 
     public AutoTurn() {
         // Use requires() here to declare subsystem dependencies
@@ -19,30 +21,32 @@ public class AutoTurn extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
+    	Robot.soulTrain.wheelEncoder.reset();
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Encoder wheelEncoder = new Encoder(1,2, true, EncodingType.k4X);
-    	wheelEncoder.reset();
-    	int turnWheelCount = wheelEncoder.get(); 
-    	int maxCount = 2000;
-    	while(turnWheelCount < maxCount){
-    		Robot.soulTrain.frontLeft.set(0.4);
-    		Robot.soulTrain.backLeft.set(0.4);
-    		if(turnWheelCount >= maxCount){
-    			Robot.soulTrain.stop();
+    	int turnWheelCount = Robot.soulTrain.wheelEncoder.get(); 
+    	while(turnWheelCount < maxTurnRotations){
+    		Robot.soulTrain.frontLeft.set(0.2);
+    		Robot.soulTrain.backLeft.set(0.2);
+    		if(turnWheelCount >= maxTurnRotations){
+    			turnIsFinished = true;
     		}
     	}
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return false;
+        if(turnIsFinished){
+        	return true;
+        }
+    	return false;
     }
 
     // Called once after isFinished returns true
     protected void end() {
+    	Robot.soulTrain.stop();
     }
 
     // Called when another command which requires one or more of the same

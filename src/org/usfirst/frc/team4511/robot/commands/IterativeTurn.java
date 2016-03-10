@@ -7,12 +7,14 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  *
  */
-public class SpitOut extends Command {
+public class IterativeTurn extends Command {
 
-    public SpitOut() {
+	int i = 0;
+	boolean turnFinished = false;
+    public IterativeTurn() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-    	requires(Robot.mouth);
+    	requires(Robot.soulTrain);
     }
 
     // Called just before this Command runs the first time
@@ -21,17 +23,25 @@ public class SpitOut extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.mouth.spinner0.set(1);
-    	Robot.mouth.spinner1.set(-1);
+    	Robot.soulTrain.frontLeft.set(.3);
+    	Robot.soulTrain.backLeft.set(.3);
+    	i++;
+    	if(i>=50){
+    		turnFinished = true;
+    	}
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return false;
+        if(turnFinished){
+        	return true;
+        }
+    	return false;
     }
 
     // Called once after isFinished returns true
     protected void end() {
+    	Robot.soulTrain.stop();
     }
 
     // Called when another command which requires one or more of the same

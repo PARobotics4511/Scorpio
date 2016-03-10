@@ -35,8 +35,7 @@ public class Robot extends IterativeRobot {
 
     Command autonomousCommand;
     SendableChooser chooser;
-
-    public static boolean adHasFinished = false;
+    
     public static boolean autoDriveForwardIsFinished = false;
     
     public static boolean liftIsFinished = false;
@@ -66,7 +65,7 @@ public class Robot extends IterativeRobot {
         
         //Vision 
         CameraServer cam = CameraServer.getInstance();
-    	cam.setQuality(20);
+    	cam.setQuality(1);
     	cam.startAutomaticCapture("cam0");
     	
     	lift.botSol.set(false);
