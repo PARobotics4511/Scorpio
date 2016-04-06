@@ -24,13 +24,11 @@ public class DriveTrain extends Subsystem {
 	
 	public RobotDrive robotD = new RobotDrive(frontLeft, backLeft, frontRight, backRight);
 	
-
 	public void initDefaultCommand() {
         // Set the default command for a subsystem here.
         //setDefaultCommand(new MySpecialCommand());
     	robotD.setSafetyEnabled(false);
 		setDefaultCommand(new Drive());
-		
     }
 	
 	public void takeJoystick(double d, double e) {

@@ -38,6 +38,7 @@ public class OI {
     
     JoystickButton butt3r = new JoystickButton(jRight, 3);
     JoystickButton butt5r = new JoystickButton(jRight, 5);
+
     //JoystickButton butt6r = new JoystickButton(jRight, 6);
     JoystickButton butt7r = new JoystickButton(jRight, 7);
     //JoystickButton butt11r = new JoystickButton(jRight, 11);
@@ -77,9 +78,7 @@ public class OI {
     butt7r.whenPressed(new PistonDefault());
     rBumper.whenPressed(new FlipUp());
     rBumper.whenReleased(new FlipStop());
-    
-    
-    
+   
     // Start the command when the button is pressed and let it run the command
     // until it is finished as determined by it's isFinished method.
     // button.whenPressed(new ExampleCommand());

@@ -25,7 +25,7 @@ public class Robot extends IterativeRobot {
 	public static OI oi;
 
     Command autonomousCommand;
-   
+    
     public static boolean liftIsFinished = false;
     public static boolean pistonIsFinished = false;
       
