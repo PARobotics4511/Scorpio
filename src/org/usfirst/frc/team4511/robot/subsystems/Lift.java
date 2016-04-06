@@ -2,10 +2,7 @@ package org.usfirst.frc.team4511.robot.subsystems;
 
 import edu.wpi.first.wpilibj.CounterBase.EncodingType;
 import edu.wpi.first.wpilibj.command.Subsystem;
-
 import org.usfirst.frc.team4511.robot.RobotMap;
-import org.usfirst.frc.team4511.robot.commands.FlipUp;
-
 import edu.wpi.first.wpilibj.CANTalon;
 import edu.wpi.first.wpilibj.Compressor;
 import edu.wpi.first.wpilibj.Encoder;

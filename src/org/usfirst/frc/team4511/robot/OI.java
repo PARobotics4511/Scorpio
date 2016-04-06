@@ -17,7 +17,7 @@ public class OI {
     // Button button = new JoystickButton(stick, buttonNumber);
     static Joystick jLeft = new Joystick(0);
     static Joystick jRight = new Joystick(1);
-    
+    static Joystick gamepad = new Joystick(2);
     // There are a few additional built in buttons you can use. Additionally,
     // by subclassing Button you can create custom triggers and bind those to
     // commands the same as any other Button.
@@ -27,45 +27,57 @@ public class OI {
     // three ways:
     
     static double deadzone = .1;
-    
+   
     public OI(){  
     JoystickButton butt1l = new JoystickButton(jLeft, 1);
     JoystickButton butt3l = new JoystickButton(jLeft, 3);
     JoystickButton butt4l = new JoystickButton(jLeft, 4);
-    JoystickButton butt6l = new JoystickButton(jLeft, 6);
+    //JoystickButton butt6l = new JoystickButton(jLeft, 6);
     JoystickButton butt7l = new JoystickButton(jLeft, 7);
-    JoystickButton butt10l = new JoystickButton(jLeft, 10);
+    //JoystickButton butt10l = new JoystickButton(jLeft, 10);
     
     JoystickButton butt3r = new JoystickButton(jRight, 3);
     JoystickButton butt5r = new JoystickButton(jRight, 5);
-    JoystickButton butt6r = new JoystickButton(jRight, 6);
+    //JoystickButton butt6r = new JoystickButton(jRight, 6);
     JoystickButton butt7r = new JoystickButton(jRight, 7);
-    JoystickButton butt11r = new JoystickButton(jRight, 11);
+    //JoystickButton butt11r = new JoystickButton(jRight, 11);
     JoystickButton butt1r = new JoystickButton(jRight, 1);
 
+    JoystickButton aButt = new JoystickButton(gamepad, 1);
+    JoystickButton bButt = new JoystickButton(gamepad, 2);
+    JoystickButton xButt = new JoystickButton(gamepad, 3);
+    JoystickButton yButt = new JoystickButton(gamepad, 4);
+    
+    JoystickButton lBumper = new JoystickButton(gamepad, 5);
+    JoystickButton rBumper = new JoystickButton(gamepad, 6);
+    
     butt1l.whileHeld(new Vent());
     butt1l.whenReleased(new PistonDefault());
     butt1r.whileHeld(new Extend());
-    //butt1r.whenReleased(new PistonDefault());
-    butt3l.whenPressed(new SpitOut());
-    butt3l.whenReleased(new SuckStop());
-    butt3r.whenPressed(new SuckIn());
-    butt3r.whenReleased(new SuckStop());
+    butt1r.whenReleased(new PistonDefault());
+    bButt.whenPressed(new BarUp());
+    bButt.whenReleased(new BarStop());
+    xButt.whenPressed(new BarDown());
+    xButt.whenReleased(new BarStop());
+    butt3l.whenPressed(new WinchUp());
+    butt3l.whenReleased(new WinchStop());
+    butt3r.whenPressed(new WinchDown());
+    butt3r.whenReleased(new WinchStop());
     butt4l.whenPressed(new BarDown());
     butt4l.whenReleased(new BarStop());
     butt5r.whenPressed(new BarUp());
     butt5r.whenReleased(new BarStop());
-    butt6l.whenPressed(new FlipDown());
-    butt6l.whenReleased(new FlipStop());
-    butt6r.whenPressed(new WinchUp());
-    butt6r.whenReleased(new WinchStop());
-    butt10l.whenPressed(new WinchDown());
-    butt10l.whenReleased(new WinchStop());
+    lBumper.whenPressed(new FlipDown());
+    lBumper.whenReleased(new FlipStop());
+    yButt.whenPressed(new SuckIn());
+    yButt.whenReleased(new SuckStop());
+    aButt.whenPressed(new SpitOut());
+    aButt.whenReleased(new SuckStop());
     butt7l.whenPressed(new PullUp());
     butt7r.whenPressed(new PistonDefault());
-    butt11r.whenPressed(new FlipUp());
+    rBumper.whenPressed(new FlipUp());
     //butt11r.whenPressed(new AutoPullUp());
-    butt11r.whenReleased(new FlipStop());
+    rBumper.whenReleased(new FlipStop());
     
     
     

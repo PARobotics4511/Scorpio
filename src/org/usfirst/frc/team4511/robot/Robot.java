@@ -5,17 +5,12 @@ import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
-
 import org.usfirst.frc.team4511.robot.commands.Autonomous;
-import org.usfirst.frc.team4511.robot.commands.PistonDefault;
-//import org.usfirst.frc.team4511.robot.commands.AutonomousTurnRight;
-import org.usfirst.frc.team4511.robot.subsystems.Cam;
 import org.usfirst.frc.team4511.robot.subsystems.DriveTrain;
 import org.usfirst.frc.team4511.robot.subsystems.Lift;
 import org.usfirst.frc.team4511.robot.subsystems.Mandible;
-
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
-//import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -25,27 +20,17 @@ import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
  * directory.
  */
 public class Robot extends IterativeRobot {
-
 	public static final DriveTrain soulTrain = new DriveTrain();
 	public static final Mandible mouth = new Mandible();
 	public static final Lift lift = new Lift();
-	//public static final Cam camera = new Cam();
-	//public static final ExampleSubsystem exampleSubsystem = new ExampleSubsystem();
 	public static OI oi;
 
     Command autonomousCommand;
     SendableChooser chooser;
-    
-    public static boolean autoDriveForwardIsFinished = false;
-    
+   
     public static boolean liftIsFinished = false;
     public static boolean pistonIsFinished = false;
-    
-    /*public static boolean winchUpIsFinished = false;
-    public static boolean winchDownIsFinished = false;
-    public static boolean flipUpIsFinished = false;
-    public static boolean extendIsFinished = false;
-    public static boolean pullUpIsFinished = false;
+      
     /**
      * This function is run when the robot is first started up and should be
      * used for any initialization code.
@@ -56,12 +41,6 @@ public class Robot extends IterativeRobot {
     
     public void robotInit() {
 		oi = new OI();
-		autonomousCommand = new Autonomous();
-		
-        /*chooser = new SendableChooser();
-        chooser.addDefault("Default Auto", new Autonomous());
-        //chooser.addObject("Turn Right Auto", new AutonomousTurnRight());
-        //SmartDashboard.putData("Auto mode", chooser);*/
         
         //Vision 
         CameraServer cam = CameraServer.getInstance();
@@ -95,22 +74,10 @@ public class Robot extends IterativeRobot {
 	 * or additional comparisons to the switch structure below with additional strings & commands.
 	 */
     public void autonomousInit() {
-        //autonomousCommand = (Command) chooser.getSelected();
-		/* String autoSelected = SmartDashboard.getString("Auto Selector", "Default");
-		switch(autoSelected) {
-		case "My Auto":
-			autonomousCommand = new MyAutoCommand();
-			break;
-		case "Default Auto":
-		default:
-			autonomousCommand = new ExampleCommand();
-			break;
-		} */
-    	
-    	// schedule the autonomous command (example)
+    	autonomousCommand = new Autonomous();
         if (autonomousCommand != null) autonomousCommand.start();
     }
-
+    
     /**
      * This function is called periodically during autonomous
      */
