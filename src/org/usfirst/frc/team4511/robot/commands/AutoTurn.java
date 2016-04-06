@@ -20,7 +20,7 @@ public class AutoTurn extends Command {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
     	angle = Robot.soulTrain.gyro.getAngle();
-    	Robot.soulTrain.robotD.tankDrive(.6, 0);
+    	Robot.soulTrain.robotD.tankDrive(.4, 0);
     }
 
     // Make this return true when this Command no longer needs to run execute()

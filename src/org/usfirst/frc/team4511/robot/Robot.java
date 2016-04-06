@@ -9,7 +9,6 @@ import org.usfirst.frc.team4511.robot.commands.Autonomous;
 import org.usfirst.frc.team4511.robot.subsystems.DriveTrain;
 import org.usfirst.frc.team4511.robot.subsystems.Lift;
 import org.usfirst.frc.team4511.robot.subsystems.Mandible;
-import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 
 
 /**
@@ -26,7 +25,6 @@ public class Robot extends IterativeRobot {
 	public static OI oi;
 
     Command autonomousCommand;
-    SendableChooser chooser;
    
     public static boolean liftIsFinished = false;
     public static boolean pistonIsFinished = false;

@@ -76,7 +76,6 @@ public class OI {
     butt7l.whenPressed(new PullUp());
     butt7r.whenPressed(new PistonDefault());
     rBumper.whenPressed(new FlipUp());
-    //butt11r.whenPressed(new AutoPullUp());
     rBumper.whenReleased(new FlipStop());
     
     

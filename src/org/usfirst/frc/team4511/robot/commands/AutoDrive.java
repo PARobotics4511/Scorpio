@@ -9,7 +9,6 @@ import edu.wpi.first.wpilibj.command.Command;
 public class AutoDrive extends Command {
 	double maxDriveCount = 1000;
 	double currentCount;
-	boolean adIsFinished;
     public AutoDrive() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
@@ -24,16 +23,15 @@ public class AutoDrive extends Command {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
     	currentCount = Robot.soulTrain.blEncoder.get();
-    	while(currentCount < maxDriveCount){
+    	while(currentCount <= maxDriveCount){
     		Robot.soulTrain.robotD.tankDrive(.6, .6);
     		currentCount++;
     	}
-    	adIsFinished = true;
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-    	if(adIsFinished)return true;
+    	if(currentCount > maxDriveCount)return true;
         return false;
     }
 

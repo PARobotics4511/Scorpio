@@ -10,8 +10,9 @@ public class RobotMap {
 	// Drivetrain Motors
 	public static int frontLeft = 1;
 	public static int frontRight = 2;
-	public static int backLeft = 4;
 	public static int backRight = 3;
+	public static int backLeft = 4;
+	
 	
 	// Winch motor
 	public static int winch = 6;
