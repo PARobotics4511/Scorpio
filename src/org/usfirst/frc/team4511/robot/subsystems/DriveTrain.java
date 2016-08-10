@@ -8,6 +8,7 @@ import edu.wpi.first.wpilibj.CANTalon;
 import edu.wpi.first.wpilibj.CounterBase;
 import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.RobotDrive;
+import org.usfirst.frc.team4511.robot.commands.EnableCutter;
 
 /**
  *
@@ -33,8 +34,10 @@ public class DriveTrain extends Subsystem {
     }
 	
 	public void takeJoystick(double d, double e, double f, double g) {
-		robotD.tankDrive(d, e);
-		backWheels.tankDrive(f, g);
+		if (EnableCutter.isCutEnabled()){
+			robotD.tankDrive(d, e);
+			backWheels.tankDrive(f, g);
+		}
 	}
 	
 	public void stop() {

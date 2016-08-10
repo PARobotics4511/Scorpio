@@ -49,6 +49,8 @@ public class OI {
     
     JoystickButton lBumper = new JoystickButton(gamepad, 5);
     JoystickButton rBumper = new JoystickButton(gamepad, 6);
+
+    JoystickButton cutter = new JoystickButton(gamepad, 7);
     
     lBumper.whileHeld(new Vent());
     //lBumper.whenReleased(new PistonDefault());
@@ -74,6 +76,7 @@ public class OI {
     xButt.whenReleased(new SuckStop());
     butt1r.whenPressed(new FlipUp());
     butt1r.whenReleased(new FlipStop());
+    cutter.whenPressed(new EnableCutter());
    
     // Start the command when the button is pressed and let it run the command
     // until it is finished as determined by it's isFinished method.
