@@ -20,9 +20,10 @@ public class DriveTrain extends Subsystem {
 
 	public Encoder blEncoder = new Encoder(0, 1, false, CounterBase.EncodingType.k4X);
 	
-	public ADXRS450_Gyro gyro = new ADXRS450_Gyro();
+	//public ADXRS450_Gyro gyro = new ADXRS450_Gyro();
 	
-	public RobotDrive robotD = new RobotDrive(frontLeft, backLeft, frontRight, backRight);
+	public RobotDrive robotD = new RobotDrive(frontLeft, frontRight);
+	public RobotDrive backWheels = new RobotDrive(backRight, backLeft);
 	
 	public void initDefaultCommand() {
         // Set the default command for a subsystem here.
@@ -31,11 +32,13 @@ public class DriveTrain extends Subsystem {
 		setDefaultCommand(new Drive());
     }
 	
-	public void takeJoystick(double d, double e) {
+	public void takeJoystick(double d, double e, double f, double g) {
 		robotD.tankDrive(d, e);
+		backWheels.tankDrive(f, g);
 	}
 	
 	public void stop() {
 		robotD.drive(0, 0);
+		//backWheels.drive(0,0);
 	}
 }

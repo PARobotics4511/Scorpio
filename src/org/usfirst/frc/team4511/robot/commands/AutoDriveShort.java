@@ -8,7 +8,8 @@ import edu.wpi.first.wpilibj.command.Command;
  */
 public class AutoDriveShort extends Command {
 	double count;
-	double shortCount = 1000;
+	double shortCount = 500;
+	boolean finished = false;
     public AutoDriveShort() {
     	requires(Robot.soulTrain);
     }
@@ -25,20 +26,23 @@ public class AutoDriveShort extends Command {
     		Robot.soulTrain.robotD.tankDrive(.4, .4);
     		count++;
     	}
+    	finished = true;
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        if(count >= shortCount) return true;
+        if(finished) return true;
     	return false;
     }
 
     // Called once after isFinished returns true
     protected void end() {
+    	Robot.soulTrain.stop();
     }
 
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
+    	
     }
 }

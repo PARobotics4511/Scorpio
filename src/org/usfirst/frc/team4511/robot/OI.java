@@ -31,16 +31,14 @@ public class OI {
     public OI(){  
     JoystickButton butt1l = new JoystickButton(jLeft, 1);
     JoystickButton butt3l = new JoystickButton(jLeft, 3);
-    JoystickButton butt4l = new JoystickButton(jLeft, 4);
+    //JoystickButton butt4l = new JoystickButton(jLeft, 4);
     //JoystickButton butt6l = new JoystickButton(jLeft, 6);
-    JoystickButton butt7l = new JoystickButton(jLeft, 7);
     //JoystickButton butt10l = new JoystickButton(jLeft, 10);
     
     JoystickButton butt3r = new JoystickButton(jRight, 3);
-    JoystickButton butt5r = new JoystickButton(jRight, 5);
+    //JoystickButton butt5r = new JoystickButton(jRight, 5);
 
     //JoystickButton butt6r = new JoystickButton(jRight, 6);
-    JoystickButton butt7r = new JoystickButton(jRight, 7);
     //JoystickButton butt11r = new JoystickButton(jRight, 11);
     JoystickButton butt1r = new JoystickButton(jRight, 1);
 
@@ -52,32 +50,30 @@ public class OI {
     JoystickButton lBumper = new JoystickButton(gamepad, 5);
     JoystickButton rBumper = new JoystickButton(gamepad, 6);
     
-    butt1l.whileHeld(new Vent());
-    butt1l.whenReleased(new PistonDefault());
-    butt1r.whileHeld(new Extend());
-    butt1r.whenReleased(new PistonDefault());
-    bButt.whenPressed(new BarUp());
-    bButt.whenReleased(new BarStop());
-    xButt.whenPressed(new BarDown());
-    xButt.whenReleased(new BarStop());
+    lBumper.whileHeld(new Vent());
+    //lBumper.whenReleased(new PistonDefault());
+    rBumper.whileHeld(new Extend());
+    //rBumper.whenReleased(new PistonDefault());
+    aButt.whenPressed(new BarUp());
+    aButt.whenReleased(new BarStop());
+    yButt.whenPressed(new BarDown());
+    yButt.whenReleased(new BarStop());
     butt3l.whenPressed(new WinchUp());
     butt3l.whenReleased(new WinchStop());
     butt3r.whenPressed(new WinchDown());
     butt3r.whenReleased(new WinchStop());
-    butt4l.whenPressed(new BarDown());
+    /*butt4l.whenPressed(new BarDown());
     butt4l.whenReleased(new BarStop());
     butt5r.whenPressed(new BarUp());
-    butt5r.whenReleased(new BarStop());
-    lBumper.whenPressed(new FlipDown());
-    lBumper.whenReleased(new FlipStop());
-    yButt.whenPressed(new SuckIn());
-    yButt.whenReleased(new SuckStop());
-    aButt.whenPressed(new SpitOut());
-    aButt.whenReleased(new SuckStop());
-    butt7l.whenPressed(new PullUp());
-    butt7r.whenPressed(new PistonDefault());
-    rBumper.whenPressed(new FlipUp());
-    rBumper.whenReleased(new FlipStop());
+    butt5r.whenReleased(new BarStop());*/
+    butt1l.whenPressed(new FlipDown());
+    butt1l.whenReleased(new FlipStop());
+    bButt.whenPressed(new SuckIn());
+    bButt.whenReleased(new SuckStop());
+    xButt.whenPressed(new SpitOut());
+    xButt.whenReleased(new SuckStop());
+    butt1r.whenPressed(new FlipUp());
+    butt1r.whenReleased(new FlipStop());
    
     // Start the command when the button is pressed and let it run the command
     // until it is finished as determined by it's isFinished method.
@@ -94,18 +90,31 @@ public class OI {
     
     public static double getYInput2(){
     	if(Math.abs(jLeft.getY()) > deadzone){
-    		return -jLeft.getY();
+    		return jLeft.getY();
     	}
     	return 0;
     }
     
     public static double getYInput(){
     	if(Math.abs(jRight.getY()) > deadzone){
+    		return jRight.getY();
+    	}
+    	return 0;
+    }
+    
+    public static double getYInputBack1(){
+    	if(Math.abs(jRight.getY()) > deadzone){
     		return -jRight.getY();
     	}
     	return 0;
     }
-       
+    
+    public static double getYInputBack2(){
+    	if(Math.abs(jLeft.getY()) > deadzone){
+    		return -jLeft.getY();
+    	}
+    	return 0;
+    }       
 }
     
 

@@ -21,9 +21,9 @@ public class PistonDefault extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.lift.botSol.set(false);
+    	//Robot.lift.botSol.set(false);
     	Robot.lift.topSol.set(false);
-    	Robot.lift.comp.start();
+    	//Robot.lift.comp.start();
     }
 
     // Make this return true when this Command no longer needs to run execute()

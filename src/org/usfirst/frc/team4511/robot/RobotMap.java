@@ -26,8 +26,8 @@ public class RobotMap {
 	public static int grabberLifter = 5; // Lifts grabber bar [for ball] on front of robot 
 
 	// Solenoids
-	public static int solBot = 0;
-	public static int solTop = 1;
+	//public static int solBot = 0;
+	public static int solTop = 0;
 
 	public static int potentiometer = 12;
 	

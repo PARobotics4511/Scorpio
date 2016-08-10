@@ -45,7 +45,7 @@ public class Robot extends IterativeRobot {
     	cam.setQuality(1);
     	cam.startAutomaticCapture("cam0");
     	
-    	lift.botSol.set(false);
+    	//lift.botSol.set(false);
     	lift.topSol.set(false);
     }
 	

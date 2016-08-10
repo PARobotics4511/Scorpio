@@ -12,16 +12,20 @@ public class Autonomous extends CommandGroup {
     public  Autonomous() {
     	requires(Robot.soulTrain);
     	requires(Robot.mouth);
+    	requires(Robot.lift);
         // Add Commands here:
         // e.g. addSequential(new Command1());
         //      addSequential(new Command2());
         // these will run in order.
-    	//addSequential(new AutoDrive());
-    	//addSequential(new AutoTurn());
+    	addSequential(new AutoBarDown());
+    	addSequential(new AutoFlipDown());
+    	//addSequential(new AutoFlipUp());
+    	//addSequential(new AutoBarUp());
     	addSequential(new AutoDrive());
-    	addSequential(new AutoTurn());
-    	addSequential(new AutoDriveShort());
-    	addSequential(new SuckIn());
+    	//addSequential(new AutoTurn());
+    	//addSequential(new AutoDriveShort());
+    	//addSequential(new AutoSpitOut());
+    	//addSequential(new SuckStop());
         // To run multiple commands at the same time,
         // use addParallel()
         // e.g. addParallel(new Command1());
@@ -32,6 +36,6 @@ public class Autonomous extends CommandGroup {
         // would require.
         // e.g. if Command1 requires chassis, and Command2 requires arm,
         // a CommandGroup containing them would require both the chassis and the
-        // arm.
+        // arm.*/
     }
 }

@@ -25,7 +25,7 @@ public class Lift extends Subsystem {
 	public Lift(){
 		liftMotor = new CANTalon(RobotMap.pistonLifter);
 		winchMotor = new CANTalon(RobotMap.winch);
-		botSol = new Solenoid(RobotMap.solBot);
+		//botSol = new Solenoid(RobotMap.solBot);
 		topSol = new Solenoid(RobotMap.solTop);
 		comp = new Compressor(RobotMap.compressor);
 		winchEncoder = new Encoder(3, 4, false, EncodingType.k4X);
