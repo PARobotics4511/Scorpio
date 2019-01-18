@@ -1,9 +1,6 @@
 
 # ProtoCode
 
-> "I will emancipate you from your inferior genes." ~ __Abradolf Lincler__
-
-
 The purpose of this repository is to:
   1. Win
   2. WIN
